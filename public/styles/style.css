@@ -1,0 +1,83 @@
+.btn{
+    width: 100px;
+    height: 50px;
+    font-size: 24px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+body{
+    background: url('/public/images/background.jpg');
+}
+.input-large{
+    text-align: center;
+    height: 50px;
+
+    font-size: 24px;
+    padding-top: 10px;
+    color: black;
+    margin-top: 10px;
+}
+.num-hint{
+    width:298px;
+}
+.container{
+    background: #FFF;
+    margin-top: 50px;
+    width: 1030px;
+    border-radius: 10px;
+}
+input,textarea {
+    border-radius: 10px;
+}
+textarea{
+    width: 320px;
+    height: 420px;
+    color: #363636;
+    font-size:20px;
+    font-family: Times New Roman;
+    font-size:15pt
+}
+th{
+
+}
+
+#modal_win,#modal_lose {
+    width: 500px;
+    height: 650px;
+    border-radius: 10px;
+    border: 3px #000 solid;
+    background: #fff;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -250px;
+    display: none;
+    opacity: 0;
+    z-index: 5;
+    padding: 20px 10px;
+}
+
+
+#modal_win #modal_close,#modal_lose #modal_close {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+#overlay {
+    z-index: 3;
+    position: fixed;
+    background-color: #000;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}

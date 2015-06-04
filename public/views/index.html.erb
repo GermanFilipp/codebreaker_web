@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Codebreaker</title>
+  <link rel="stylesheet" href="/public/styles/bootstrap.css">
+  <link rel="stylesheet" href="/public/styles/style.css">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="/public/js/script.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="row" style="text-align:center;">
+    <h1>Codebreaker</h1>
+  </div>
+  <div class="row" style="margin-top: 20px">
+    <div class="col-md-4" style="width: 350px">
+      <table class="table table-striped">
+        <thead>
+        <th style="text-align:center">
+          Introducing Codebreaker
+        </th>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Codebreaker is a logic game in which a code-breaker tries to break a secret code created
+            by a code-maker. The code-maker, which will be played by the application we’re going to write,
+            creates a secret code of four numbers between 1 and 6.
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            The code-breaker then gets some number of chances to break the code.
+            In each turn, the code-breaker makes a guess of four numbers.
+            The code-maker then marks the guess with up to four + and - signs.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            A + indicates an exact match: one of the numbers in the guess is the same
+            as one of the numbers in the secret code and in the same position.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            A - indicates a number match: one of the numbers in the guess is the same as
+            one of the numbers in the secret code but in a different position.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3" style="width: 300px" align="center">
+      <form class="form-horizontal">
+        <table>
+          <thead>
+          <div class="row" style="margin-left: 2px;font-size:20px ;">
+            <input class="input-large checked_answer" type="text" style="color: darkred" readonly>
+          </div>
+
+          <div class="row" style="margin-left: 2px;font-size:20px ">
+            <input class="input-large user_code" type="text" readonly>
+          </div>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="padding-top: 20px">
+
+              <div class="btn-group " style="width: 310px">
+                <button class="btn num">1</button>
+                <button class="btn num">2</button>
+                <button class="btn num">3</button>
+              </div>
+
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top: 5px">
+              <div class="btn-group " style="width: 310px">
+                <button class="btn num">4</button>
+                <button class="btn num">5</button>
+                <button class="btn num">6</button>
+              </div>
+            </td>
+          <tr>
+            <td style="padding-top: 5px" align="left">
+              <button class="btn num-hint">hint</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>You have <span class="attempt"><%= @game.move %></span> attemps</h3>
+            </td>
+          </tr>
+          </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="col-md-4" style=" margin-left: 30px;">
+      <h3 align="center">Results:</h3>
+      <textarea class="output_game" rows="3" readonly></textarea>
+    </div>
+
+  </div>
+</div>
+
+<!-- Модальное окно -->
+<div>
+  <div id="modal_win">
+    <span id="modal_close">X</span>
+
+    <form action="" method="post">
+      <h2 align="center" style="color: green">You WIN!!!!!!!!</h2>
+
+      <h3 align="center">Do you want to save your score???</h3>
+      <input style="margin-left: 30px" class="input-large user_name" type="text">
+      <button class="btn save" style="margin-bottom: 18px">Save</button>
+      <button class="btn try_again" style="width:120px; margin-left: 50px">Try again</button>
+      <button class="btn exit" style="margin-left: 153px">Close</button>
+      <img style="margin-left: 130px;margin-top: 5px" src="/public/images/harold.png"/>
+
+    </form>
+
+  </div>
+  <div id="overlay"></div>
+</div>
+
+<div>
+  <div id="modal_lose">
+    <span id="modal_close">X</span>
+
+    <form action="" method="post">
+      <h2 align="center" style="color: red"><strong>You lose!!!</strong></h2>
+
+      <h3 align="center">The secret number is <%= @game.secret_code %></h3>
+      <button class="btn try_again" style="width:120px; margin-left: 50px">Try again</button>
+      <button class="btn exit" style="margin-left: 153px">Close</button>
+      <img style="margin-left: 50px; margin-top: 5px" src="/public/images/sad.jpg"/>
+
+    </form>
+
+  </div>
+  <div id="overlay"></div>
+</div>
+
+</body>
+</html>
