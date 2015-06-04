@@ -23,8 +23,7 @@ $(document).ready(function () {
 
 
 
-
-    $('#modal_close, #overlay,.exit').click(function () {
+    $('.exit_lose').click(function () {
         $('#modal_win')
             .animate({opacity: 0, top: '45%'}, 200,
             function () {
@@ -33,7 +32,25 @@ $(document).ready(function () {
             }
         );
     });
-    $('#modal_close, #overlay,.exit').click(function () {
+    $('.exit_win').click(function () {
+        $('#modal_lose')
+            .animate({opacity: 0, top: '45%'}, 200,
+            function () {
+                $(this).css('display', 'none');
+                $('#overlay').fadeOut(400);
+            }
+        );
+    });
+    $('#modal_close, #overlay').click(function () {
+        $('#modal_win')
+            .animate({opacity: 0, top: '45%'}, 200,
+            function () {
+                $(this).css('display', 'none');
+                $('#overlay').fadeOut(400);
+            }
+        );
+    });
+    $('#modal_close, #overlay').click(function () {
         $('#modal_lose')
             .animate({opacity: 0, top: '45%'}, 200,
             function () {
