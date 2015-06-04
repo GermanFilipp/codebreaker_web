@@ -33,7 +33,15 @@ $(document).ready(function () {
             }
         );
     });
-
+    $('#modal_close, #overlay,.exit').click(function () {
+        $('#modal_lose')
+            .animate({opacity: 0, top: '45%'}, 200,
+            function () {
+                $(this).css('display', 'none');
+                $('#overlay').fadeOut(400);
+            }
+        );
+    });
     $(".hasclear").keyup(function () {
         var t = $(this);
         t.next('span').toggle(Boolean(t.val()));
